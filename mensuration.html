@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+  <h1>MENSURATION</h1>
+<div class="bg-gray-100 pt-4 h-screen">
+  <!--division for triangle starts from here-->
+  <div class="bg-white w-full">
+    <h2 class="text-2xl mb-4 text-center">triangle</h2>
+<div class="flex gap-20">
+  <!--if height and base is available-->
+  <div>
+    <label for="inputValue" class="block mb-2">Enter Base</label>
+    <input id="inputValue" type="number" class="p-2 mb-4" placeholder="Enter value">
+    <label for="inputValue0" class="block mb-2">Enter Height</label>
+    <input id="inputValue0" type="number" class="p-2 mb-4" placeholder="Enter value">
+    <button id="convertBtn" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Calculate area</button>
+
+    <p id="result" class="text-center mt-4 font-bold text-lg"></p>
+    </div>
+    <div class="mt-30">OR</div>
+    <!--if 3 sides are available-->
+    <div class="">
+    <label for="inputValue1" class="block mb-2">Enter side1</label>
+    <input id="inputValue1" type="number" class="p-2 mb-4" placeholder="Enter value">
+    <label for="inputValue2" class="block mb-2">Enter side2</label>
+    <input id="inputValue2" type="number" class="p-2 mb-4" placeholder="Enter value">
+    <label for="inputValue3" class="block mb-2">Enter side3</label>
+    <input id="inputValue3" type="number" class="p-2 mb-4" placeholder="Enter value">
+    <button id="convertBtn0" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Calculate area</button>
+
+    <p id="result0" class="text-center mt-4 font-bold text-lg"></p>
+    </div>
+    <!--find height of isoseles-->
+    <div>
+    <label for="inputValue4" class="block mb-2">Enter side of isoceles triangle</label>
+    <input id="inputValue4" type="number" class="p-2 mb-4" placeholder="Enter value">
+    <button id="convertBtn1" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Calculate height
+    </button>
+
+    <p id="result1" class="text-center mt-4 font-bold text-lg"></p>
+    </div>
+    </div>
+  </div>
+  <br/>
+  <!--division for rectangle starts from here-->
+  <div class="bg-white p-8 max-w-md w-full">
+    <h2 class="text-2xl mb-4 text-center">Area of triangle</h2>
+
+    <label for="inputValue" class="block mb-2">Enter Base in meter</label>
+    <input id="inputValue" type="number" class="w-full p-2 mb-4" placeholder="Enter value">
+    <label for="inputValue0" class="block mb-2">Enter Height in meter</label>
+    <input id="inputValue0" type="number" class="w-full p-2 mb-4" placeholder="Enter value">
+    <button id="convertBtn" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Calculate</button>
+
+    <p id="result" class="text-center mt-4 font-bold text-lg"></p>
+  </div>
+
+  <script>
+    const convertBtn = document.getElementById('convertBtn');
+    const resultText = document.getElementById('result');
+    
+    function convertLength() {
+const base = document.getElementById('inputValue').value;
+    const height = document.getElementById('inputValue0').value;
+      let result;
+      result=0.5*base*height
+      resultText.textContent = `area: ${result}`;
+    }
+    convertBtn.addEventListener('click', convertLength);
+//2nd 
+    const convertBtn0 = document.getElementById('convertBtn0');
+    const resultText0 = document.getElementById('result0');
+    
+    function convertLength0() {
+const s1 = document.getElementById('inputValue1').value;
+    const s2 = document.getElementById('inputValue2').value;
+    const s3 = document.getElementById('inputValue3').value;
+    let s
+    s=(parseInt(s1)+parseInt(s2)+parseInt(s3))/2
+      let result0;
+      result0=Math.sqrt(s*(s-s1)*(s-s2)*(s-s3))
+      resultText0.textContent = `area: ${result0}`;
+    }
+    convertBtn0.addEventListener('click', convertLength0);
+    //3rd
+const convertBtn1 = document.getElementById('convertBtn1');
+    const resultText1 = document.getElementById('result1');
+    
+    function convertLength1() {
+const base = document.getElementById('inputValue4').value;
+      let result;
+      result=*base*base
+      resultText1.textContent = `area: ${result}`;
+    }
+    convertBtn1.addEventListener('click', convertLength1);
+  </script>
+</div>
+</body>
+</html>

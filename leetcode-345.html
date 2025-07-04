@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <label for="inputValue4" class="block mb-2">reverse vowels of a string</label>
+    <input id="inputValue4" type="text" class="p-2 mb-4" placeholder="Enter string">
+    <button id="convertBtn1" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">reverse
+    </button>
+
+    <p id="result1" class="text-center mt-4 font-bold text-lg"></p>
+
+  <script>
+    const convertBtn = document.getElementById('convertBtn1');
+    const resultText = document.getElementById('result1');
+    
+    function convertLength() {
+const base = document.getElementById('inputValue4').value;
+      const vowels = new Set(['a','e','i','o','u','A','E','I','O','U']);
+    const arr = base.split('');
+    let left = 0, right = arr.length - 1;
+
+    while (left < right) {
+        while (left < right && !vowels.has(arr[left])) left++;
+        while (left < right && !vowels.has(arr[right])) right--;
+        [arr[left], arr[right]] = [arr[right], arr[left]];
+        left++;
+        right--;
+    }
+
+    let base1=arr.join('');
+      resultText.textContent = `result is: ${base1}`;
+    }
+    convertBtn.addEventListener('click', convertLength);
+  </script>
+</div>
+</body>
+</html>
